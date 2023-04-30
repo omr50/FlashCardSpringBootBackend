@@ -30,11 +30,11 @@ public class User implements UserDetails {
 
     // constructors, getters, and setters
 
-    public User(Long id, String username, String password, boolean enabled, boolean accountNonExpired, boolean accountNonLocked, boolean credentialsNonExpired) {
+    public User(Long id, String username, String password) {
         this.id = id;
         this.username = username;
         this.password = password;
-        this.enabled = enabled;
+        this.enabled = isEnabled();
         this.accountNonExpired = isAccountNonExpired();
         this.accountNonLocked = isAccountNonLocked();
         this.credentialsNonExpired = isCredentialsNonExpired();
@@ -52,6 +52,10 @@ public class User implements UserDetails {
     @Override
     public String getPassword() {
         return this.password;
+    }
+
+    public void setPassword(String password) {
+        this.password = password;
     }
 
     @Override

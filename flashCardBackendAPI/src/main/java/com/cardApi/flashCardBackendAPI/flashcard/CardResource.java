@@ -98,6 +98,7 @@ public class CardResource {
     // Update a card by id (WORKS)
     @PutMapping("/users/{username}/cards/{id}")
     public Cards updateCard(@PathVariable String username, @PathVariable Long id, @RequestBody Cards card) {
+        System.out.println(card);
         cardsRepository.save(card);
         return card;
     }
