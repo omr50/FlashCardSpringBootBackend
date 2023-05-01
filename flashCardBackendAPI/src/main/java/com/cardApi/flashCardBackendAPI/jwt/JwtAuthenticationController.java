@@ -39,16 +39,22 @@ public class JwtAuthenticationController {
     @PostMapping("/signup")
     public ResponseEntity<String> createUser(@RequestBody User user){
         try {
+            System.out.println('a');
             UserDetails user1 = userDetailsService.loadUserByUsername(user.getUsername());
-            throw new ResponseStatusException(HttpStatus.CONFLICT, "Username already taken");
+            System.out.println('b');
+            return ResponseEntity.status(HttpStatus.CONFLICT).body("Username already taken");
         } catch (UsernameNotFoundException e) {
+            System.out.println('c');
             // if the user isn't found then that's good because that allows
             // us to create a new user.
 
             // Before saving, encrpy the password
             String encodedPassword = bCryptPasswordEncoder.encode(user.getPassword());
+            System.out.println('d');
             user.setPassword(encodedPassword);
+            System.out.println('e');
             userRepository.save(user);
+            System.out.println('f');
             return ResponseEntity.ok("User Created Successfully!");
         }
     }
