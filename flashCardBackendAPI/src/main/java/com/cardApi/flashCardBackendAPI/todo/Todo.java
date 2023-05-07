@@ -32,6 +32,10 @@ public class Todo {
     private LocalDate targetDate;
     private boolean done;
 
+    private String reminder;
+
+    private String reminderEmail;
+
     public Integer getId() {
         return id;
     }
@@ -70,6 +74,22 @@ public class Todo {
 
     public void setDone(boolean done) {
         this.done = done;
+    }
+
+    public String getReminder() {
+        return reminder;
+    }
+
+    public void setReminder(String reminder) {
+        this.reminder = reminder;
+    }
+
+    public String getReminderEmail() {
+        return reminderEmail;
+    }
+
+    public void setReminderEmail(String reminderEmail) {
+        this.reminderEmail = reminderEmail;
     }
 
     @Override

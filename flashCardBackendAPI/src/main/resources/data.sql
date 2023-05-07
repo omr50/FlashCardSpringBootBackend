@@ -2,12 +2,18 @@ insert into todo(id, description, done, target_date, username)
 values (10001, 'Learn AWS', false, CURRENT_DATE(), 'john');
 
 
-insert into todo(id, description, done, target_date, username)
-values (10002, 'Get AWS Certified', false, CURRENT_DATE(), 'john');
+insert into todo(id, description, done, target_date, username, reminder, reminder_email)
+values (10002, 'Get AWS Certified', false, CURRENT_DATE(), 'john', 'weekly', 'omrab209@gmail.com');
 
 
-insert into todo(id, description, done, target_date, username)
-values (10003, 'Learn DevOps', false, CURRENT_DATE(), 'john');
+insert into todo(id, description, done, target_date, username, reminder, reminder_email)
+values (10003, 'Learn DevOps', false, CURRENT_DATE(), 'john', 'daily', 'omrman4@gmail.com');
+
+insert into todo(id, description, done, target_date, username, reminder, reminder_email)
+values (10004, 'Learn MultiThreading', false, CURRENT_DATE(), 'john', 'daily', 'omrman4@gmail.com');
+
+insert into todo(id, description, done, target_date, username, reminder, reminder_email)
+values (10005, 'Learn SQL', false, CURRENT_DATE(), 'john', 'daily', 'omrman4@gmail.com');
 
 INSERT INTO users (id, username, password, enabled, account_non_expired, account_non_locked, credentials_non_expired) VALUES (10001, 'john', '$2a$10$Ig8.5mw0GciRW6OaNVEZ3.KYRV7y82sAgwPAy96jU9d0uEeblZz6W', true, true, true, true);
 INSERT INTO users (id, username, password, enabled, account_non_expired, account_non_locked, credentials_non_expired) VALUES (10002, 'jane', '$2a$10$Ig8.5mw0GciRW6OaNVEZ3.KYRV7y82sAgwPAy96jU9d0uEeblZz6W', true, true, true, true);

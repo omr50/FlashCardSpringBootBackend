@@ -11,6 +11,7 @@ public class TodoResource {
 
     @Autowired
     private TodoService todoService;
+
     @GetMapping("/users/{username}/todos")
     public List<Todo> retrieveTodos(@PathVariable String username) {
         return todoService.findByUsername(username);
@@ -38,4 +39,5 @@ public class TodoResource {
         Todo createdTodo = todoService.addTodo(username, todo.getDescription(), todo.getTargetDate(), todo.isDone());
         return createdTodo;
     }
+
 }

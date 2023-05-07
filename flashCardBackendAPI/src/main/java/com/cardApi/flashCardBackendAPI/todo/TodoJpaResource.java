@@ -43,4 +43,31 @@ public class TodoJpaResource {
         todo.setId(null);
         return todoRepository.save(todo);
     }
+
+    // since we only really need to update one field on the todo parameter, we don't need to access it from the
+    // front end. We just take in teh value of the reminder, add it to the current todo, and then save it.
+    @PutMapping("/users/{username}/todos/{id}/reminder/{reminder}/{reminderEmail}")
+    public Todo addReminder(@PathVariable String username, @PathVariable int id, @PathVariable String reminder, @PathVariable String reminderEmail) {
+        Todo todo = todoRepository.findById(id).get();
+        todo.setReminder(reminder);
+        todo.setReminderEmail(reminderEmail);
+        // if same id as an existing one, this just overrides the old
+        // object with the new one in the database.
+        todoRepository.save(todo);
+
+        return todo;
+    }
+
+    // Delete the reminder. If the user no longer wants email reminders then delete the email reminder
+
+    @DeleteMapping("/users/{username}/todos/{id}/reminder")
+    public ResponseEntity<Void> deleteReminder(@PathVariable String username, @PathVariable int id) {
+        Todo todo = todoRepository.findById(id).get();
+        todo.setReminder(null);
+        todo.setReminderEmail(null);
+        todoRepository.save(todo);
+        // if same id as an existing one, this just overrides the old
+        // object with the new one in the database.
+        return ResponseEntity.noContent().build();
+    }
 }
