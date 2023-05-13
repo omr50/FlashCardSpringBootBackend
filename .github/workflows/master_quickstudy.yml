@@ -49,5 +49,5 @@ jobs:
         with:
           app-name: 'quickstudy'
           slot-name: 'Production'
-          publish-profile: ${{ secrets.AZUREAPPSERVICE_PUBLISHPROFILE_28F99C0134764645A599ABF166DEF3AD }}
+          publish-profile: ${{ secrets.AZUREAPPSERVICE_PUBLISHPROFILE_42F9B0AC60FF461B8C58270BDB08D0BA }}
           package: '*.jar'
