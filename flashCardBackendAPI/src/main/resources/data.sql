@@ -1,13 +1,13 @@
 insert into todo(id, description, done, target_date, username)
-values (10001, 'Learn AWS', false, CURRENT_DATE(), 'john');
+values (10001, 'Learn Spring Boot', false, CURRENT_DATE(), 'john');
 
 
 insert into todo(id, description, done, target_date, username, reminder, reminder_email)
-values (10002, 'Get AWS Certified', false, CURRENT_DATE(), 'john', 'weekly', 'omrab209@gmail.com');
+values (10002, 'Learn Python', false, CURRENT_DATE(), 'john', 'weekly', 'omrab209@gmail.com');
 
 
 insert into todo(id, description, done, target_date, username, reminder, reminder_email)
-values (10003, 'Learn DevOps', false, CURRENT_DATE(), 'john', 'daily', 'omrman4@gmail.com');
+values (10003, 'Read Chapter 2 of System Design Book', false, CURRENT_DATE(), 'john', 'daily', 'omrman4@gmail.com');
 
 insert into todo(id, description, done, target_date, username, reminder, reminder_email)
 values (10004, 'Learn MultiThreading', false, CURRENT_DATE(), 'john', 'daily', 'omrman4@gmail.com');
@@ -20,23 +20,29 @@ INSERT INTO users (id, username, password, enabled, account_non_expired, account
 
 
 insert into cardset (id, set_name, set_description, username)
-values (10001, 'Bio', 'Chapter 1 Bio Cards', 'john');
+values (10001, 'Biology', 'Chapter 1 Bio Cards', 'john');
 
 insert into cardset (id, set_name, set_description, username)
-values (10002, 'Chem', 'Chapter 1 Chem Cards', 'john');
+values (10002, 'Chemistry', 'Chapter 1 Chem Cards', 'john');
 
 
 insert into cards (id, word, definition, cardset_id)
-values (10001, 'DNA', 'Deoxy Ribo Nucleic Acid', 100001);
+values (10001, 'Biosphere', 'All of the environments on Earth that support life.', 100001);
 
 insert into cards (id, word, definition, cardset_id)
-values (10002, 'Mitochondria', 'Power house of the cell', 10001);
+values (10002, 'Ecosystem', 'An environment consisting of organisms living and the physcial components that they interact with.', 10001);
 
 insert into cards (id, word, definition, cardset_id)
-values (10003, 'Tibia', 'A bone some where in the body. i forgot where.', 10001);
+values (10003, 'Organ System', 'Consists of several organs that cooperate in a specific function.', 10001);
 
 insert into cards (id, word, definition, cardset_id)
-values (10004, 'HCL', 'Hydrochloric Acid', 10002);
+values (10004, 'Eukaryotic cells', 'cell with membrane-enclosed nucleus, membrane-enclosed organelles. Organisms except bacteria and archaea have eukaryotic cells.', 10001);
 
 insert into cards (id, word, definition, cardset_id)
-values (10005, 'Base', 'Compound with OH-', 10002);
+values (10005, 'Chemistry', 'the study of composition, structure, and properties of matter', 10002);
+
+insert into cards (id, word, definition, cardset_id)
+values (10006, 'Metalloid', 'have some characteristics of both non-metals and metals', 10002);
+
+insert into cards (id, word, definition, cardset_id)
+values (10007, 'Reactant', 'substances that react in the reaction', 10002);

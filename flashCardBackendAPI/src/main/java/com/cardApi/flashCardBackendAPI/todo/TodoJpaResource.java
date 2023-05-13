@@ -45,7 +45,7 @@ public class TodoJpaResource {
     }
 
     // since we only really need to update one field on the todo parameter, we don't need to access it from the
-    // front end. We just take in teh value of the reminder, add it to the current todo, and then save it.
+    // front end. We just take in the value of the reminder, add it to the current todo, and then save it.
     @PutMapping("/users/{username}/todos/{id}/reminder/{reminder}/{reminderEmail}")
     public Todo addReminder(@PathVariable String username, @PathVariable int id, @PathVariable String reminder, @PathVariable String reminderEmail) {
         Todo todo = todoRepository.findById(id).get();

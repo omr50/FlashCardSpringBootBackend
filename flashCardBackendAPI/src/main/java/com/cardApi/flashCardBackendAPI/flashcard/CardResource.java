@@ -28,6 +28,9 @@ public class CardResource {
     }
 
     // get cardset by id
+    // -----------------
+    // used for editing the card set. Retrieve the entire card set
+    // to fill out the form for editing.
     @GetMapping("/users/{username}/flashcards/{id}")
     public Cardset retrieveFlashcardSet(@PathVariable String username, @PathVariable Long id) {
         // important make sure you have getters/ setters / constructor
@@ -60,34 +63,29 @@ public class CardResource {
 
     // CRUD FOR INDIVIDUAL CARDS ---------------------------------------------------------------------------------------
 
-    // get all cards in specific cardset. (WORKS)
+    // get all cards in specific cardset.
     @GetMapping("/users/{username}/flashcards/{id}/cards")
     public List<Cards> retrieveFlashcards(@PathVariable String username, @PathVariable long id) {
-        // important make sure you have getters/ setters / constructor
-        // otherwise you get back a blank JSON response. (FIXED)
         return cardsRepository.findByCardsetId(id);
     }
 
     // get one card by id
     @GetMapping("/users/{username}/cards/{id}")
     public Cards retrieveCard(@PathVariable String username, @PathVariable long id) {
-        // important make sure you have getters/ setters / constructor
-        // otherwise you get back a blank JSON response. (FIXED)
         return cardsRepository.findById(id).get();
     }
 
-    // Delete a card by id (WORKS)
+    // Delete a card by id
     @DeleteMapping("/users/{username}/cards/{id}")
     public ResponseEntity<Void> deleteCard(@PathVariable String username, @PathVariable Long id) {
         cardsRepository.deleteById(id);
         return ResponseEntity.noContent().build();
     }
 
-    // Post a new card by id   (WORKS)
+    // Post a new card by id
     // not necessary to use path variable
-    // for set id because the
-    // front end should send the json
-    // with the set id as one of the parameters
+    // for set id, front end should send the json
+    // with the set id as one of the fields
     @PostMapping("/users/{username}/cards")
     public Cards createCard(@PathVariable String username, @RequestBody Cards card) {
         System.out.println("Added new card " + card);
@@ -95,7 +93,7 @@ public class CardResource {
         return savedCard;
     }
 
-    // Update a card by id (WORKS)
+    // Update a card by id
     @PutMapping("/users/{username}/cards/{id}")
     public Cards updateCard(@PathVariable String username, @PathVariable Long id, @RequestBody Cards card) {
         System.out.println(card);

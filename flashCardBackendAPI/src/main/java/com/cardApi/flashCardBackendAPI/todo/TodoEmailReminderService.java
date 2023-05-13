@@ -38,11 +38,9 @@ public class TodoEmailReminderService {
     public void sendDailyReminderEmails() {
         System.out.println("Email Sent Daily");
         List<Todo> todos = todoRepository.findByReminder("daily");
-
         // executor service used to create threads since we want each email
         // to be sent asynchronously so that users that are toward the end
         // of the for loop don't receive the emails late.
-
         ExecutorService executorService = Executors.newCachedThreadPool();
         for (var todo : todos) {
             System.out.println("Email Sent Daily");
